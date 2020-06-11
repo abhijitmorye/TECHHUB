@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Tech hub provides documentation to automate your performace testing using different open source DevOps tools">
+  <meta name="author" content="Abhijit Morye">
+  <meta name="keywords" content="devops,performance testing,performance engineering">
+  <title>TECH HUB</title>
+  <style media="screen">
+  #div1 {
+    height: 10%;
+    float: left;
+    width: 25%;
+  }
+
+  #div2 {
+    height: 10%;
+    float: left;
+    width: 40%;
+    font-size: 250%;
+    text-align: center;
+    margin-top: 2%;
+  }
+
+  #div3 {
+    height: 10%;
+    float: right;
+    width: 25%;
+    margin-left: 9.1%;
+    margin-top: 2.7%;
+    font-style: italic;
+  }
+
+  #div4 {
+    height: 50%;
+    float: left;
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+  }
+  #div5 {
+     height: 50%;
+     float:left;
+     width:100%;
+  }
+  </style>
+</head>
+
+<body style="background-color:#ffd65e;">
+  <header>
+    <div id="div1">
+      <a href="Index.html"><img src="Logo\logo_transparent.png" height="100px" width="100px" /></a>
+    </div>
+    <div id="div2">
+      <strong>TECH HUB</strong>
+    </div>
+    <div id="div3">
+      <strong>A Platform to Share your knowledge..Gain knowledge..</strong>
+    </div>
+
+  </header>
+  <div id="div4">
+    <a href="Index.html#homepage">Home</a>
+    <a href="Index.html#about">About</a>
+    <a href="Index.html#contact">Contact</a>
+    <span style="float:right;">
+      <input type="text" name="search" placeholder="Search..">
+      <button type="submit" placeholder="Submit" name="Submit" style="height:19px;width:80px;background-color:darkgrey;border-style:solid;">Submit</button></span>
+
+  </div>
+  <div id="div5">
+    <h2>
+      <center>How To Implement DevOps</center>
+    </h2>
+    <p>Despite a large amount of info on DevOps, there’s still a lack of details on concrete steps to take to start DevOps implementation and make it successful to speed up software development and operations.</p>
+    <img src="images\devopsimpl1.png" alt="devops flowchart" height="400" width="400" style="border:2px;border-color:black;border-style:solid">
+  <p>In this article, relying on our expertise in DevOps practices, we define the reasons to start DevOps, consider its value and further show how the DevOps implementation plan can be realized.</p>
+  <h2>A typical pre-DevOps situation</h2>
+  <p>We describe the common conditions, in which companies develop their software and conduct IT operations. These conditions may be far from infallible, and the flaws in them may determine the companies' decision to shift to DevOps as a way to improve their software development process and IT operations.</p>
+  <img src="images\devopsimpl2.png" alt="pre devops" height="400" width="400" style="border:2px;border-color:black;border-style:solid">
+  <h2>In-house, outsourced, or partially outsourced software development</h2>
+  <p>Traditionally, there are three main options to organize software development:</p>
+  <ol>
+    <li>Software is developed by a company’s in-house team with a good deal of financial and human resources dedicated to the development process.</li>
+    <li>Software development is outsourced to a third party, in case there’s a lack of IT resources for development.</li>
+    <li>Software development is conducted with in-house efforts but, for instance, quality assurance (QA) is delegated to a third-party QA services provider due to the gap in QA competencies in a company.</li>
+  </ol>
+  <h2>Strict segregation of duties between the departments involved in development</h2>
+  <p>Development, testing and QA, infrastructure provisioning and modernization are within the responsibilities of three different departments. Correspondingly, developers write code, software test engineers inspect the application for bugs, the operations team manages the production environment and ensures stable application performance. The duties of the departments are strictly segregated and the collaboration between them is weak. Security administrators represent one more independent department that is often perceived as a ‘roadblock’ in the software development cycle, since their efforts to detect security weaknesses in the application (and developers’ efforts to fix them further) lead to the project’s prolongation.</p>
+  <h2>Insufficient coverage by tests</h2>
+  <p>Developers write unit tests to individually check the functioning of each smallest testable software part early in the development stage. As unit testing implies verifying software units independently, integration errors or software performance issues may go unnoticed. To check the interconnection between application components, as well as the overall application functioning, software test engineers carry out manual and automated testing via UI. However, the rate of test automation is not high enough to cover even critical functionality.</p>
+  <h2>High probability of post-release errors</h2>
+  <p>Test engineers conduct functional, performance, integration, security, usability, and other types of testing. However, continuous testing is not implemented at each stage of the software development process. Due to the resulting testing gaps, software users often detect severe post-release bugs. Further, test engineers may not be able to reproduce the identified defects in the testing environment. This may happen because of the <strong>differences in:</strong></p>
+  <ul>
+    <li>Configurations of testing and production environments.</li>
+    <li>Build versions deployed in production and in testing environment.</li>
+  </ul>
+  <h2>Lack of users’ trust in software quality</h2>
+  <p>Due to severe post-release errors, business users are not sure of software quality and have to conduct thorough manual acceptance testing. And because potential users are busy with their main responsibilities, their feedback comes with considerable delays.</p>
+  <h2>Weeks for updates and fixes</h2>
+  <p>As the collaboration between the teams involved in the software development process is not efficient enough, it generally takes 2-4 weeks to detect and fix bugs or implement and release minor changes in the software. Such a long waiting period is especially harmful when software under development is supposed to support or transform critical business operations, for instance, if it is a supply chain management application or a CRM software.</p>
+  <h2>Time-consuming deployment of the infrastructure</h2>
+  <p>System administrators spend days or even weeks to prepare a new development, testing and production infrastructure for a new project. Misconfigurations often occur due to the manual nature of infrastructure preparation. Modifications and tuning take even more time.</p>
+  <h2>What to expect from DevOps</h2>
+  <p>To overcome the drawbacks of a traditional way to develop software and carry out IT operations, we suggest considering the DevOps approach.
+    Due to a range of new practices and technologies we describe further in the article, businesses implementing DevOps can develop and deliver stable applications with thoroughly tested functionality faster than organizations sticking to the traditional approach to software development and operations. We accumulated our DevOps-related experience to provide you with a list of the key advantages DevOps brings.</p>
+<img src="images\devopsimpl3.png" alt="devops roadmap" height="400" width="400" style="border:2px;border-color:black;border-style:solid">
+<h2>Constant communication between the teams engaged in software development</h2>
+<p>The implementation of the DevOps approach presupposes that developers, QA engineers and system administrators now work in the alignment with each other. The ongoing communication between the DevOps practitioners allows preparing and delivering new software pieces to production faster and with a decreased number of bugs missed.</p>
+<h2>Fewer software failures caused by the differences in infrastructure configurations</h2>
+<p>With DevOps, it’s possible to create identical working environments for development, testing and IT operations teams. It becomes achievable when infrastructure as code (IaC) is applied. A DevOps engineer can create a new development or testing environment aligned with the production environment. After that, developers and test engineers can work with new builds being sure that the created development and testing environments are completely identical to the production.
+As a result, there will be no situations when software works properly in the testing environment but fails on production.</p>
+<h2>Fast provision of new infrastructure</h2>
+<p>To quickly prepare and deliver new infrastructure for development, testing and production, DevOps engineers apply the IaC approach. As the infrastructure exists as ready-made code, any time developers need a new infrastructure for a new project, they don’t have to wait before system administrators provide them with it.</p>
+<h2>The increased amount of test automation</h2>
+<p>Continuous testing is one of the key components of the DevOps approach. To achieve it, testing is automated with the use of specialized tools, e.g., Selenium, Zephyr, and Tricentis Tosca that are designed to automatically perform various types of tests (such as unit, functional, integration testing) and promptly notify the DevOps practitioners on detected bugs.</p>
+<h2>Quick and reliable delivery of application updates</h2>
+<p>Thanks to close collaboration between the DevOps-related teams and implementing application release automation (ARA), <strong>software is updated faster </strong>than in the traditional process of software development. ARA allows accelerating the process of deploying new builds with the minimal downtime and fewer configuration errors usually occurring when the deployment of new build is carried out manually.</p>
+<h2>Fewer post-release errors</h2>
+<p>With the implementation of continuous testing and the alignment of testing and production environments, the QA team spends much less time on QA and testing activities and misses fewer bugs.</p>
+<h2>Improved users’ trust</h2>
+<p>Within the DevOps approach, the rate of test automation increases while the number of post-release errors declines. To convince business users of high software quality, it’s important to establish strong communication with them. Business users can be involved in defining the tests to be automated (including acceptance tests as well) to ensure sufficient testing coverage for the software functions that are the most critical for them. Since business users know that software functionality is tested thoroughly, their confidence in the application quality rises. Thus, they lose the need to carry out their own manual acceptance tests afterwards, which reduces the overall lead time.</p>
+<h2>DevOps implementation roadmap</h2>
+<p>Once you have considered all the factors and decided to implement DevOps within your company, you need a step-by-step plan to smoothly shift from traditional software development to the DevOps approach. Here, we outline the key steps.</p>
+<img src="images\devopsimpl4.png" alt="devops roadmap" height="400" width="400" style="border:2px;border-color:black;border-style:solid">
+<ol>
+  <h2><li>Organizing a DevOps initiative</li></h2>
+  <p>A company’s CIO organizes a DevOps initiative as a part of the IT department program. Thus, the IT department gets an opportunity to make changes in the development and operations activities the least painfully for the entire company. CIO, in his turn, is able to arrange financial investments, human resources in the most optimal way. A program manager becomes responsible for designing the DevOps strategy and monitoring its implementation.</p>
+  <h2><li>Building the DevOps strategy</li></h2>
+  <p>To draw up an effective DevOps strategy, a program manager should utilize best practices that will improve the interdepartmental collaboration and enable the new ways of infrastructure provisioning, software development and testing. Among the most important practices are the following:</p>
+  <ul>
+    <li>Put the company’s development, testing, design, operations and other teams in a shared working DevOps environment, making all the members focus on the outcomes of the software development cycle and understand each other’s motives and duties. Set the common goal – to accelerate a software development cycle and ensure the high quality of software – for everyone involved in software development and operations.</li>
+    <li>Implement IaC to ensure the prompt provision of the IT infrastructure upon developers’ or test engineers’ requests, whenever they need it for creating a new build or checking its quality. This will allow DevOps practitioners to get new infrastructure for development or testing in one click, as well as avoid human errors that often result from the manual configuration of IT infrastructures.</li>
+    <li>Automate software building, unit testing, application testing via UI, software integrating, deploying, and releasing processes to speed up the software development-testing-releasing cycle.</li>
+  </ul>
+<h2><li>Containerizing</li></h2>
+<p>Containerization implemented with such tool as Docker solves the problem with the reliability of software, for example, when it travels from the development to the testing environment and then to production. Containers include everything required to run an application, i.e. all the dependencies, libraries, configuration files. The isolation of the containerized parts of the software from the overall IT infrastructure allows for their stable running regardless of the differences in the environments they are put in.
+Moreover, since the pieces of application (its database, front end, etc.) are put into several containers, it is easier for an operations team to manage the application, since they have no need to rebuild the entire software when the changes are required in one of its microservices.</p>
+<h2><li>Integrating infrastructure automation with CI/CD tools</li></h2>
+<p>When software is put into containers, the containerized application needs to be managed properly. Such infrastructure automation tools as Kubernetes, Ansible, Chef, or Puppet are integrated with CI/CD tools like Jenkins, Bamboo, or GoCD for more efficient configuration management and software deployment.
+For example, Kubernetes – for large infrastructures – or Ansible – for smaller ones – allows managing containers for fault tolerance, monitoring their health and rolling software updates, and Jenkins is used to create, test and deploy new builds into Kubernetes.</p>
+<h2><li>Increasing the amount of test automation and aligning QA with development</li></h2>
+<p>To achieve faster delivery with DevOps, sufficient automated testing must be ensured. However, not each testing type must be automated. For instance, exploratory, usability, and security testing should still be performed manually. Depending on the efforts needed to write automated tests, functional testing may partially remain manual.
+The development and testing activities are carried out in tandem to avoid post-release bugs. While the application is still in development, the best practice is to conduct automated tests 1-2 times a day. In case defects are found, developers work on stabilizing software before releasing the next build.</p>
+<h2><li>Ensuring total application performance monitoring</li></h2>
+<p>Application performance monitoring provides the DevOps-related teams with transparency over all the performance issues, e.g., slow response, memory leaks, runtime errors. The issues may be revealed during application server monitoring, user experience monitoring, etc.
+Application performance monitoring allows detecting, prioritizing and isolating application defects before end users find them, as well as finding the root causes of the errors quickly with the use of special application monitoring software, such as Zabbix, Nagios, or Prometheus customized for monitoring a particular application.</p>
+</ol>
+</div>
+</body>
+</html>
