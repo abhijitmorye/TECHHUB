@@ -47,6 +47,18 @@
       float: left;
       width: 100%;
     }
+
+    #div6 {
+      height: 50%;
+      float: left;
+      width: 100;
+    }
+
+    #div7 {
+      height: 50%;
+      float: left;
+      width: 100;
+    }
   </style>
 </head>
 
@@ -74,12 +86,14 @@
   </div>
   <div id="div5">
     <h2>
-      <center>GC Analysis<center>
+      <center>Garbage Collection in Java<center>
     </h2>
-    <p>In this article, we will understand how GC works in java.</p>
+    <p>In this article, we will understand how garabage collection works in java.</p>
     <h4>Topics :</h4>
     <ul>
       <li><a href="#JVM">JVM Architecture</a></li>
+      <li><a href="#heap">Heap Structure</a></li>
+      <li><a href="#garbagecollection">Garbage Collection</a></li>
     </ul>
     <br>
     <a name="JVM">
@@ -120,8 +134,196 @@
                 "-cp" or "-classpath" switch. It is also known as Application classloader.</li><br>
             </ol>
           </li>
+          <li>
+            <h4>Class(Method) Area</h4>
+          </li>
+          <p>Class(Method) Area stores per-class structures such as the runtime constant pool, field and method data, the code for methods.</p>
+          <li>
+            <h4>Heap</h4>
+          </li>
+          <p>Heap is runtime area where all objects are stored during execution</p>
+          <li>
+            <h4>Stack</h4>
+          </li>
+          <p>Whenever a thread is invoked in java,it gets created in stack memory area.Eevry thread has its own JVM stack.Stack contains of frames that stores loacl variables and partial result.Frame in stack is created whenever method is
+            onvoked.Once method is destroyed,its frame gets destroyed. </p>
+          <li>
+            <h4>Program Counter Register</h4>
+            <p>This area contains of address of currently executed instruction</p>
+          </li>
+          <li>
+            <h4>Native Method Stack</h4>
+            <p>It contains all the native method of application.</p>
+          </li>
+          <li>
+            <h4>Execution Engine</h4>
+            <p>It contains:</p>
+            <ol>
+              <li><strong>A virtual processor</strong></li>
+              <li><strong>Interpreter:</strong> Read bytecode stream then execute the instructions.</li>
+              <li><strong>Just-In-Time(JIT) compiler:</strong> It is used to improve the performance. JIT compiles parts of the byte code that have similar functionality at the same time, and hence reduces the amount of time needed for compilation.
+                Here, the term "compiler" refers to a translator from the instruction set of a Java virtual machine (JVM) to the instruction set of a specific CPU.</li>
+            </ol>
+          </li>
+          <li>
+            <h4>Java Native Interface</h4>
+            <p>Java Native Interface (JNI) is a framework which provides an interface to communicate with another application written in another language like C, C++, Assembly etc. Java uses JNI framework to send output to the Console or interact
+              with OS libraries.</p>
+          </li>
         </ul>
-
+      </article>
+    </a>
+  </div>
+  <div id="div6">
+    <a name="heap">
+      <article>
+        <header>
+          <strong>Heap Structure</strong>
+        </header>
+        <p>Once we know the JVM architecture,let's understand the Heap structure</p>
+        <img src="images/heaparch.png" alt="Heap structure" height="300" width="600" style="border-style:solid;">
+        <ul>
+          <li>
+            <p>Heap memory is the run time data area from which the memory for all java class instances and arrays is allocated. The heap is created when the JVM starts up and may increase or decrease in size while the application runs. The size of
+              the heap can be specified using –Xms VM option. The heap can be of fixed size or variable size depending on the garbage collection strategy. Maximum heap size can be set using –Xmx option. By default, the maximum heap size is set to 64
+              MB.</p>
+          </li>
+          <li>
+            <p>The JVM heap is physically divided into two parts (or generations): nursery (or young space/young generation) and old space (or old generation).</p>
+            <ol>
+              <li>
+                <strong>Nursery/Minor/Younge generation:</strong>
+                <p>Whenever any new obejcts are created,they are stored in young generations.So nursery is space for newly created object. Whenever nursey are ets full,minor garabage collection happens and objects thathave no live references will be
+                  collected.Nursery generation is further divided into different parts</p>
+                <ul type="circle">
+                  <li><strong>Eden space:</strong> Most of the newly created objects are located in the Eden Memory space</li>
+                  <li><strong>S0 space and S1 space:</strong> When Eden space is filled with objects, Minor GC is performed and all the survivor objects are moved to one of the survivor spaces (say S0).During next minor collection,objects in both
+                    eden and survivor space are moved to another survivor space(say S1)</li>
+                </ul>
+              </li>
+              <br>
+              <li>
+                <strong>Tenured/Major/Old Generation:</strong>
+                <p>Objects that hold live references and are not collected by minor collection cycles are moved into Tenured generation.Whenever tenured generation gets full.Major collection happens and those object which have no live refernces will
+                  be destroyed.Time required for major collection is higher than that of minor collection.</p>
+              </li>
+              <li>
+                <strong>Permanent Generation:</strong>
+                <p>Permanent Generation or “Perm Gen” contains the application metadata required by the JVM to describe the classes and methods used in the application. Perm Gen is populated by JVM at runtime based on the classes used by the
+                  application. Perm Gen also contains Java SE library classes and methods. Perm Gen objects are garbage collected in a full garbage collection.</p>
+                <p>With java 8, there is no permanent generation. <strong>Metaspace</strong> is inclued in Java 8 which is not a part of JVM heap.</p>
+              </li>
+              <li>
+                <strong>Java Heap Memory Switches:</strong>
+                <p>JVM provides different switches or flags to define heap memory in JVM.</p>
+                <table border="solid" style="text-align:center;border-collapse:collapse;" cellspacing="2px">
+                  <thead>
+                    <tr>
+                      <th>JVM Switches/Flags</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>–Xms</td>
+                      <td>Sets initial heap size when JVM starts.</td>
+                    </tr>
+                    <tr>
+                      <td>-Xmx</td>
+                      <td>Sets maximum heap size</td>
+                    </tr>
+                    <tr>
+                      <td>-Xmn</td>
+                      <td>For setting the size of young generation, rest of the space goes for old generation</td>
+                    </tr>
+                    <tr>
+                      <td>-XX:PermGen</td>
+                      <td>For setting the initial size of the Permanent Generation Memory</td>
+                    </tr>
+                    <tr>
+                      <td>-XX:MaxPermGen</td>
+                      <td>For setting the maximum size of Perm Gen</td>
+                    </tr>
+                    <tr>
+                      <td>-XX:SurvivorRatio</td>
+                      <td>For providing ratio of Eden space, for example, if young generation size is 10m and VM switch is –XX:SurvivorRatio=2 then 5m will be reserved for Eden space and 2.5m each for both the Survivor spaces. The default value is 8
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>-XX:NewRatio</td>
+                      <td>For providing ratio of old/new generation sizes. The default value is 2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </article>
+    </a>
+  </div>
+  <div id="div7">
+    <a name="garbagecollection">
+      <article>
+        <header>
+          <strong>Garbage Collection</strong>
+        </header>
+        <ul>
+          <li>
+            <p>Garbage Collection is the process of freeing space in the heap for the allocation of new objects. One of the best features of Java is automatic garbage collection. Garbage Collector is the program running in the background that looks
+              into all the objects in the memory and find out objects that are not referenced by any part of the program. All these unreferenced objects are deleted and space is reclaimed for allocation to other objects. One of the basic ways of
+              garbage collection involves three steps:</p>
+            <ol>
+              <li>
+                <p><strong>Marking:</strong> This is the first step where garbage collector identifies which objects are in use and which ones are not in use</p>
+              </li>
+              <li>
+                <p><strong>Normal Deletion:</strong> Garbage collector removes the unused objects and reclaims the free space to be allocated to other objects</p>
+              </li>
+              <li>
+                <p><strong>Deletion with compacting:</strong> For better performance, after deleting unused objects, all the survived objects can be moved to be together. This will increase the performance of allocation of memory to newer objects</p>
+              </li>
+            </ol>
+            <li>
+              <strong>Mark and Sweep Model of Garbage Collection</strong>
+              <p>JVM uses the mark and sweep garbage collection model for performing garbage collection of the whole heap. A mark and sweep garbage collection consists of two phases, the mark phase, and the sweep phase.</p>
+              <p>During the mark phase, all the objects that are reachable from Java threads, native handlers and other root sources are marked as alive, as well as the objects that are reachable from these objects and so forth. This process identifies and marks all objects that are still used, and the rest can be considered garbage.</p>
+              <p>During the sweep phase, the heap is traversed to find the gaps between the live objects. These gaps are recorded in a free list and are made available for new object allocation.</p>
+            </li>
+            <li>
+              <strong>Java Garbage Collection Types</strong>
+              <p>There are five types of garbage collection types that we can use in our applications. We just need to use JVM switch to enable the garbage collection strategy for the application.</p>
+              <ul>
+                <li>
+                  <strong>Serial GC (-XX:+UseSerialGC): </strong>
+                  <p> Serial GC uses the simple mark-sweep-compact approach for young and old generations garbage collection that is, Minor and Major GC.It uses only one thread to perform GC.</p>
+                  <p>It is the stop the world activity where every application threads are stopped to perform GC</p>
+                  <p>To enable the Serial Collector use: <em>-XX:+UseSerialGC</em></p>
+                </li>
+                <li>
+                  <strong>Parallel GC (-XX:+UseParallelGC): </strong>
+                  <p>Parallel GC is same as Serial GC except that, it spawns N threads for young generation garbage collection where N is the number of CPU cores in the system. We can control the number of threads using <strong>–XX:ParallelGCThreads=</strong>n JVM option. This is JVM’s default collector in JDK 8</p>
+                  <p>To enable the Parallel GC, use:<em>-XX:+UseParallelGC</em></p>
+                </li>
+                <li>
+                  <strong>Parallel Old GC (-XX:+UseParallelOldGC): </strong>
+                  <p>This is the same as Parallel GC except that it uses multiple threads for both young generation and old generation garbage collection</p>
+                  <p>To enable the Parallel OLDGC, use:<em>-XX:+UseParallelOldGC</em></p>
+                </li>
+                <li>
+                  <strong>Concurrent Mark Sweep (CMS) Collector (-XX:+UseConcMarkSweepGC): </strong>
+                  <p>CMS is also referred as concurrent low pause collector. It does the garbage collection for the old generation. CMS collector tries to minimize the pauses due to garbage collection by doing most of the garbage collection work concurrently within the application threads. CMS collector on the young generation uses the same algorithm as that of the parallel collector. This garbage collector is suitable for responsive applications where we can’t afford longer pause times. We can limit the number of threads in CMS collector using <strong>–XX:ParallelCMSThreads=n</strong> JVM option</p>
+                  <p>To enable the CMS Collector use:<em>-XX:+UseConcMarkSweepGC.</em></p>
+                </li>
+                <li>
+                  <strong>G1 Garbage Collector (-XX:+UseG1GC): </strong>
+                  <p>The garbage first or G1 Garbage Collector is available from Java 7 and its long term goal is to replace the CMS collector. The G1 collector is a parallel, concurrent and incrementally compact low-pause garbage collector. Garbage first collector doesn’t work like other collectors and there is no concept of young and old generation space. It divides the heap space into multiple equal-sized heap regions. When a garbage collector is invoked, it first collects the region with lesser live data, hence “Garbage First”.</p>
+                  <p>To enable the G1 Collector use:<em>-XX:+UseG1GC</em></p>
+                  <p>In Java 8, the G1 collector comes with an amazing optimization which is known as <strong>String Deduplication</strong>. It enables the GC to identify strings that have multiple occurrences across the heap and modify them to point to the same internal char[] array so that there are no multiple copies in the heap.It can be enabled by using <em>-XX:+UseStringDeduplication</em> JVM argument.</p>
+                </li>
+              </ul>
+            </li>
+        </ul>
       </article>
     </a>
   </div>
